@@ -1,6 +1,21 @@
 class Solution:
     # @return an integer
     def maxArea(self, height):
+        left = 0
+        right = len(height) - 1
+        res = 0
+
+        while left < right:
+            water = min(height[left], height[right]) * (right - left)
+            if water > res: res = water
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return res
+
+    def maxArea_n2(self, height):
         n = len(height)
         if n <= 1: return 0
 
@@ -19,7 +34,6 @@ class Solution:
 
 if __name__ == '__main__':
     height = [3, 1, 2, 5, 4]
-    height = [0, 0, 0]
     solution = Solution()
     res = solution.maxArea(height)
     print res

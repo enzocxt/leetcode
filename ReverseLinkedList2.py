@@ -19,19 +19,11 @@ class Solution:
         for j in range(n):
             p2 = p2.next
 
-        print p1.val, p2.val
-
-        #while p1.next != p2.next:
-        for i in range(n-m):
-            print "p1, p2: %s, %s" % (p1.val, p2.val)
+        while p1.next != p2:
             tmp1 = p1.next.next
             p1.next.next = p2.next
             p2.next = p1.next
             p1.next = tmp1
-            print "p1, p1.next: %s, %s" % (p1.val, p1.next.val)
-            print "p2, p2.next: %s, %s" % (p2.val, p2.next.val)
-
-        print head.val, head.next.val, head.next.next.val, head.next.next.next.val
 
         return dummy.next
 

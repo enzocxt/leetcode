@@ -35,6 +35,10 @@ class Solution:
         i = 0
         while i < k/2 * 2:
             head = self.merge(lists[i], lists[i+1])
+            p = head
+            #while p:
+            #    print p.val
+            #    p = p.next
             lst.append(head)
             i += 2
         if k % 2 != 0: lst.append(lists[-1])
@@ -48,13 +52,13 @@ class Solution:
 if __name__ == '__main__':
     lists = []
     A = [1, 2, 3, 4, 5, 6, 7, 8]
-    B = [1, 3, 6, 4, 5, 2]
+    B = [1, 3, 4, 5]
     C = [4, 6, 7, 8]
     d = [A, B, C]
     for i in d:
+        dummy = ListNode(0)
+        tmp = dummy
         for j in i:
-            dummy = ListNode(0)
-            tmp = dummy
             tmp.next = ListNode(j)
             tmp = tmp.next
         lists.append(dummy.next)
